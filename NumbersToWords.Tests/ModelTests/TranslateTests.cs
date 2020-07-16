@@ -14,5 +14,13 @@ namespace NumbersToWords.Tests
       Translate newTranslate = new Translate();
       Assert.AreEqual(typeof(Translate), newTranslate.GetType());
     }
+    [TestMethod]
+    public void GetNumber_ReturnsNumber_Int()
+    {
+      int testNumber = 5;
+      Translate newTranslate = new Translate();
+      int result = newTranslate.Number;
+      Assert.AreEqual(testNumber, result);
+    }
   }
 }
