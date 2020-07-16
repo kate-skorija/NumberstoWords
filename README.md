@@ -1,4 +1,4 @@
-# _Palindrome_
+# _Numbers To Words_
 
 #### By _**Chris Yoon, Kate Skorija**_
 
