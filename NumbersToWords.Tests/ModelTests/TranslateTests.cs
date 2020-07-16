@@ -25,9 +25,9 @@ namespace NumbersToWords.Tests
     [TestMethod]
     public void TranslateNumber_ReturnString_String()
     {
-      int testNumber = 10;
+      int testNumber = 23;
       Translate newTranslate = new Translate(testNumber);
-      string testString = "ten";
+      string testString = "twenty three";
       string result = newTranslate.TranslateNumber();
       Assert.AreEqual(testString, result);
     }
