@@ -1,10 +1,14 @@
 using System.Collections.Generic;
+using System;
+using System.Globalization;
+
 namespace NumbersToWords.Models
 {
   public class Translate
   {
     public int Number { get; }
-    private static Dictionary<char, string> _oneToNineteen = new Dictionary<char, string>() { {'1', "one"}, {'2', "two"}, {'3', "one"}, {'4', "four"}, {'5', "five"}, {'6', "six"}, {'7', "seven"}, {'8', "eight"}, {'9', "nine"} };
+    private static Dictionary<char, string> _oneToNine = new Dictionary<char, string>() { {'1', "one"}, {'2', "two"}, {'3', "one"}, {'4', "four"}, {'5', "five"}, {'6', "six"}, {'7', "seven"}, {'8', "eight"}, {'9', "nine"} };
+    private static Dictionary<char, string> _tenToNineteen = new Dictionary<char, string>() { {'0', "ten"}, {'1', "eleven"}, {'2', "twelve"}, {'3', "thirteen"}, {'4', "fourteen"}, {'5', "fifteen"}, {'6', "sixteen"}, {'7', "seventeen"}, {'8', "eighteen"}, {'9', "nineteen"} };
 
     public Translate(int number)
     {
@@ -15,10 +19,21 @@ namespace NumbersToWords.Models
     {
       string result = "";
       string numberString = Number.ToString();
-      char[] numberStringArray = numberString.ToCharArray();
-      foreach (char number in numberStringArray)
+      char[] numberCharArray = numberString.ToCharArray();
+      
+      for(int index = numberCharArray.Length - 1; index >= 0; index--)
       {
-      result = (_oneToNineteen[number]).ToString();
+        if (numberCharArray.Length == 2 && numberCharArray[0] == '1')
+        {
+          char indexChar = Convert.ToChar(index);
+          result = (_tenToNineteen[numberCharArray[indexChar]]).ToString();
+          break;
+        }
+        else
+        {
+          char indexChar = Convert.ToChar(index);
+          result = (_oneToNine[numberCharArray[indexChar]]).ToString();
+        }
       }
       return result;
     }
