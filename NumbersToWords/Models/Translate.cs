@@ -3,7 +3,12 @@ namespace NumbersToWords.Models
 {
   public class Translate
   {
+    public int Number { get; }
 
+    public Translate(int number)
+    {
+      Number = number;
+    }
   }
 }
 // 132
