@@ -3,7 +3,7 @@
 #### By _**Chris Yoon, Kate Skorija**_
 
 ## Description
-_Tranlsates numbers to words._
+_This is an unfinished educational project for Epicodus to practice C#. It tranlsates numbers to words._
 
 ## Setup/Installation Requirements 
 
